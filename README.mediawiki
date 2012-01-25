@@ -1,0 +1,8 @@
+== Description ==
+A monte carlo simulator of various asset models that use fractional brownian motion as a source of randomness.
+
+== Acknowledgements ==
+* The Fractional Brownian Motion Generation is provided by Ton Dieker (http://www2.isye.gatech.edu/~adieker3/fbm/index.html)
+* Matrix operations provided by Meschach (http://www.netlib.org/c/meschach/)
+* Random number generation provided by Ranlib
+
