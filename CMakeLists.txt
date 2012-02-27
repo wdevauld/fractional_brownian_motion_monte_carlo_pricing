@@ -15,3 +15,5 @@ find_library(MESCHACH
 add_library(Circulant circulant.c)
 target_link_libraries(Circulant MESCHACH)
 add_library(Hosking hosking.c)
+
+add_executable(fbmmcp fbmmcp.c)
