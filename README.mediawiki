@@ -1,5 +1,5 @@
 == Description ==
-A monte carlo simulator of various asset models that use fractional brownian motion as a source of randomness.
+A monte carlo simulator of various asset models that have stochastic volatility driven by fractional brownian motion.
 
 == Acknowledgements ==
 * The Fractional Brownian Motion Generation is provided by Ton Dieker (http://www2.isye.gatech.edu/~adieker3/fbm/index.html)
