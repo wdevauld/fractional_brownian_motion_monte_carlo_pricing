@@ -1,6 +1,9 @@
-#include <stdio.h>
+#include "fbmmcp.h"
 
-int main( int argc, const char* argv[] )
+int main(int argc, char *argv[] )
 {
-    printf("Hi\n");    
+    command_line_options *clo = malloc(sizeof(command_line_options));
+    parse_command_line(clo, argc, argv);
+
+    printf("Executing with %d simulations\n", clo->number_of_simulations);
 }
