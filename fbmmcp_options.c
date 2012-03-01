@@ -26,7 +26,7 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     if(clo->number_of_simulations <= 0) {
         clo->number_of_simulations = DEFAULT_NUM_SIMULATIONS;
     }
-    if(clo->hurst_exponent <= 0.5 || clo->hurst_exponent >= 1) {
+    if(clo->hurst_exponent < 0.5 || clo->hurst_exponent >= 1) {
         clo->hurst_exponent = DEFAULT_HURST_EXPONENT;
     }
     return !error_encountered;

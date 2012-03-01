@@ -4,5 +4,8 @@ A monte carlo simulator of various asset models that have stochastic volatility 
 == Acknowledgements ==
 * The Fractional Brownian Motion Generation is provided by Ton Dieker (http://www2.isye.gatech.edu/~adieker3/fbm/index.html)
 * Matrix operations provided by Meschach (http://www.netlib.org/c/meschach/)
-* Random number generation provided by Ranlib
+* Random number generation provided by Ranlib (http://www.netlib.org/random/)
 
+== OS X Notes ==
+Meschach and Ranlib can be installed using MacPorts (http://www.macports.org/)
+<code>sudo port install meschach libranlib</code>

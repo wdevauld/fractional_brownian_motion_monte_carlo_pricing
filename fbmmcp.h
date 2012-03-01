@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
 // fractional Brownian Motion Libraries
 #include "circulant.h"
 #include "hosking.h" 

@@ -4,9 +4,15 @@
 
 int main(int argc, char *argv[] )
 {
-    command_line_options *clo = malloc(sizeof(command_line_options));
-    memset(clo,0,sizeof(command_line_options));
-    
+    command_line_options *clo = calloc(1, sizeof(command_line_options));
+    int i;
+    double T;
+    int method = 1;
+    long seed1, seed2, n;
+    time_t timer;
+    timer = time(NULL);
+    char *localtime_buffer = (char *)asctime(localtime(&timer));
+
     if(!parse_command_line(clo, argc, argv)) {
         //Exit with failure after printing usage if the parameter parsing
         //has determined that things aren't right
@@ -14,23 +20,26 @@ int main(int argc, char *argv[] )
         return 1; 
     }
 
-    DEBUG_MSG("Executing with %'d simulations\n", clo->number_of_simulations);
+    DEBUG_MSG("User desired: %ld simulations\n", clo->number_of_simulations);
+    n = floor(log2(clo->number_of_simulations));
+    clo->number_of_simulations = pow(2,n);
+    //Right now, just have each sample be a single time unit
+    T = (double)clo->number_of_simulations;
+    
+    DEBUG_MSG("Executing 2^%ld (%ld) simulations", n,  clo->number_of_simulations);
+
+    double *fractional_brownian_samples = (double *) calloc(clo->number_of_simulations, sizeof(double));
+    
     DEBUG_MSG("Using %f as a Hurst Exponent\n", clo->hurst_exponent);
     
- //   void hosking(clo.number_of_simulations, clo.hurst_exponent, double *L, int *cum, 
- //   	     long *seed1, long *seed2, double *output) {
-      /* function that generates a fractional Brownian motion or fractional  */
-      /* Gaussian noise sample using the Hosking method.                     */
-      /* Input:  *n      determines the sample size N by N=2^(*n)            */
-      /*         *H      the Hurst parameter of the trace                    */
-      /*         *L      the sample is generated on [0,L]                    */
-      /*         *cum    = 0: fractional Gaussian noise is produced          */
-      /*                 = 1: fractional Brownian motion is produced         */
-      /*         *seed1  seed1 for the random generator                      */
-      /*         *seed2  seed2 for the random generator                      */
-      /* Output: *seed1  new seed1 of the random generator                   */
-      /*         *seed2  new seed2 of the random generator                   */
-      /*         *output the resulting sample is stored in this array        */
+    //TODO allow the user to specify the seeds
+    phrtsd(localtime_buffer, &seed1, &seed2);
     
-    printf("0\n");
+    DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n", seed1, seed2);
+    
+    hosking(&n, &(clo->hurst_exponent), &(T), &method, 
+        &seed1, &seed2, fractional_brownian_samples);
+    for(i = 0; i < clo->number_of_simulations; i++) {
+        printf("%f\n", fractional_brownian_samples[i]);
+    }
 }

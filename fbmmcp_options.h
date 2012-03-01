@@ -5,7 +5,7 @@
 #define DEFAULT_HURST_EXPONENT 0.75
 
 typedef struct{
-    int number_of_simulations;
+    long number_of_simulations;
     int debug;
     double hurst_exponent;
 } command_line_options;
