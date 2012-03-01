@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+#include <sys/time.h>
 
 // fractional Brownian Motion Libraries
 #include "circulant.h"

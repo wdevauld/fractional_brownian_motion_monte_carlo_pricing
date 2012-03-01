@@ -9,9 +9,13 @@ int main(int argc, char *argv[] )
     double T;
     int method = 1;
     long seed1, seed2, n;
+    struct timeval ts;
+    gettimeofday(&ts, NULL);
+    /*
     time_t timer;
     timer = time(NULL);
     char *localtime_buffer = (char *)asctime(localtime(&timer));
+    */
 
     if(!parse_command_line(clo, argc, argv)) {
         //Exit with failure after printing usage if the parameter parsing
@@ -33,7 +37,9 @@ int main(int argc, char *argv[] )
     DEBUG_MSG("Using %f as a Hurst Exponent\n", clo->hurst_exponent);
     
     //TODO allow the user to specify the seeds
-    phrtsd(localtime_buffer, &seed1, &seed2);
+//    phrtsd(localtime_buffer, &seed1, &seed2);
+    seed1 = ts.tv_sec;
+    seed2 = ts.tv_usec
     
     DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n", seed1, seed2);
     
