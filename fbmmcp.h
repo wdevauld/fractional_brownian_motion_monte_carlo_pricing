@@ -18,7 +18,6 @@
 \tfbmmcp -n [NUM]\n\
 OPTIONS:\n\
 \t-n [NUM]\tNUM of independent samples to perform [DEFAULT: 10]\n\
-\t-H [NUM]\tThe Hurst Exponent, NUM, to use in (0.5,1) [DEFAULT: 0.75]"
 \t-H [NUM]\tThe Hurst Exponent, NUM, to use in (0,1) [DEFAULT: 0.75]\n\
 \t-d\t\tEnable debug output\n\
 \t-t [NUM]\tThe end time of the simulation [DEFAULT: 10.0]\n"
