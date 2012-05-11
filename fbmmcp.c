@@ -6,9 +6,14 @@ int main(int argc, char *argv[] )
     int i;
     double T;
     long seed1, seed2, n;
+    struct timeval ts;
+    double *fractional_brownian_samples;
+    gettimeofday(&ts, NULL);
+    /*
     time_t timer;
     timer = time(NULL);
     char *localtime_buffer = (char *)asctime(localtime(&timer));
+    */
 
     if(!parse_command_line(clo, argc, argv)) {
         //Exit with failure after printing usage if the parameter parsing
@@ -28,7 +33,5 @@ int main(int argc, char *argv[] )
             //Allocate the memory for output
             fractional_brownian_motion(clo);
             break;
-
     }
-            
 }

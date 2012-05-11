@@ -53,6 +53,5 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     if(clo->output_option < 1) {
         clo->output_option = DEFAULT_OUTPUT;
     }
-    
     return !error_encountered;
 }
