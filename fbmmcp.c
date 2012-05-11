@@ -6,9 +6,10 @@ int main(int argc, char *argv[] )
     int i;
     double T;
     long seed1, seed2, n;
-    struct timeval ts;
-    double *fractional_brownian_samples;
-    gettimeofday(&ts, NULL);
+    time_t timer;
+    timer = time(NULL);
+    char *localtime_buffer = (char *)asctime(localtime(&timer));
+
     /*
     time_t timer;
     timer = time(NULL);
