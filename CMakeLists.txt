@@ -25,9 +25,12 @@ add_library(Cov cov.c)
 
 add_library(Circulant circulant.c)
 target_link_libraries(Circulant meschach ranlib Cov)
+
 add_library(Hosking hosking.c)
 target_link_libraries(Hosking ranlib Cov)
+
 add_library(FBMMCPOptions fbmmcp_options.c)
+add_library(model_fBm models/fractional_brownian_motion.c)
 
 add_executable(fbmmcp fbmmcp.c fbmmcp.h)
-target_link_libraries(fbmmcp meschach FBMMCPOptions Hosking Circulant)
+target_link_libraries(fbmmcp meschach FBMMCPOptions Hosking Circulant model_fBm)

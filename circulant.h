@@ -1,9 +1,7 @@
 /*  Copyright Ton Dieker                                                    */
 /*  Centre of Mathematics and Computer Science (CWI) Amsterdam              */
 /*  April 2002                                                              */
-
 /*  ton@cwi.nl                                                              */
-
 
 #include <stdio.h>
 #include <math.h>
