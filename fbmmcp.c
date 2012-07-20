@@ -3,9 +3,6 @@
 int main(int argc, char *argv[] )
 {
     command_line_options *clo = calloc(1, sizeof(command_line_options));
-    int i;
-    double T;
-    long seed1, seed2, n;
     time_t timer;
     timer = time(NULL);
     char *localtime_buffer = (char *)asctime(localtime(&timer));
@@ -25,7 +22,7 @@ int main(int argc, char *argv[] )
     //TODO allow the user to specify the seeds
     phrtsd(localtime_buffer, &(clo->seed1), &(clo->seed2));
     
-    DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n", seed1, seed2);
+    DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n",clo->seed1, clo->seed2);
   
     //Change program course depending on what the user is looking for 
     switch (clo->output_option) {
