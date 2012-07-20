@@ -23,6 +23,13 @@ int main(int argc, char *argv[] )
     phrtsd(localtime_buffer, &(clo->seed1), &(clo->seed2));
     
     DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n",clo->seed1, clo->seed2);
+
+    DEBUG_MSG("User desired: %ld simulations\n", clo->number_of_simulations);
+    clo->n = floor(log2(clo->number_of_simulations));
+    clo->number_of_simulations = pow(2,clo->n);
+    DEBUG_MSG("Executing 2^%ld (%ld) simulations", clo->n,  clo->number_of_simulations);
+
+
   
     //Change program course depending on what the user is looking for 
     switch (clo->output_option) {

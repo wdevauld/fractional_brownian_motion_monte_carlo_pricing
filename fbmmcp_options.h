@@ -21,6 +21,7 @@
 typedef struct{
     long number_of_simulations;
     long number_of_steps;
+    long n;
     int debug;
     double hurst_exponent;
     int output_option;
