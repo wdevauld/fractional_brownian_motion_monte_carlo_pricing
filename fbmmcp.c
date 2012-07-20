@@ -24,12 +24,10 @@ int main(int argc, char *argv[] )
     
     DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n",clo->seed1, clo->seed2);
 
-    DEBUG_MSG("User desired: %ld simulations\n", clo->number_of_simulations);
-    clo->n = floor(log2(clo->number_of_simulations));
-    clo->number_of_simulations = pow(2,clo->n);
-    DEBUG_MSG("Executing 2^%ld (%ld) simulations", clo->n,  clo->number_of_simulations);
-
-
+    DEBUG_MSG("User desired: %ld steps\n", clo->number_of_steps);
+    clo->n = floor(log2(clo->number_of_steps));
+    clo->number_of_steps = pow(2,clo->n);
+    DEBUG_MSG("Executing with 2^%ld (%ld) steps\n", clo->n,  clo->number_of_steps);
   
     //Change program course depending on what the user is looking for 
     switch (clo->output_option) {
