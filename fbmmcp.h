@@ -25,4 +25,5 @@ OPTIONS:\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\
 \t\t 3 - Geometric fractional brownian motion\n\
-\t\t 4 - Geometric Fractional brownian noise\n"
+\t\t 4 - Geometric Fractional brownian volatilities\n\
+\t-a [NUM]\t The starting volatilities a_0\n"

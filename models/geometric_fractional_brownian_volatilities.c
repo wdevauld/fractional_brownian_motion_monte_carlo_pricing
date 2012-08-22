@@ -14,8 +14,7 @@ void geometric_fractional_brownian_volatilities(command_line_options* clo) {
                 &(clo->seed1), &(clo->seed2), fractional_brownian_samples);
         
         for(step = 0; step < clo->number_of_steps; step++) {
-            
-            printf("%lf\t", geometric_fractional_brownian_samples[step]);
+            printf("%lf\t", fractional_brownian_samples[step]);
         }
         printf("\n");
     }

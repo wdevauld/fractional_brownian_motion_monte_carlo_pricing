@@ -46,9 +46,9 @@ int main(int argc, char *argv[] )
             geometric_fractional_brownian_motion(clo);
             break;
 
-        case GEOMETRIC_FRACTIONAL_BROWNIAN_NOISE:
+        case GEOMETRIC_FRACTIONAL_BROWNIAN_VOLATILITIES:
             DEBUG_MSG("Output will be geometric fractional Brownian noise\n");
-            geometric_fractional_brownian_noise(clo);
+            geometric_fractional_brownian_volatilities(clo);
             break;
     }
 }

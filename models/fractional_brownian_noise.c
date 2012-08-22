@@ -3,9 +3,7 @@
 void fractional_brownian_noise(command_line_options* clo) {
     int sim,step;
     int method = 0;
-    double *volatilities = (double *) calloc(clo->number_of_steps, sizeof(double));
     double *fractional_brownian_samples = (double *) calloc(clo->number_of_steps, sizeof(double));
-    double *volatilities = (double *) calloc(clo->number_of_steps, sizeof(double));
     DEBUG_MSG("Executing Hosking's algorithm to generate noise\n");
     
     for(sim = 0; sim < clo->number_of_simulations; sim++) {
