@@ -17,6 +17,9 @@
 
 //Output options
 #define HOSKING_BROWNIAN_MOTION_PATHS 1
+#define HOSKING_BROWNIAN_MOTION_NOISE 2
+#define GEOMETRIC_FRACTIONAL_BROWNIAN_MOTION 3
+#define GEOMETRIC_FRACTIONAL_BROWNIAN_NOISE 4
 
 typedef struct{
     long number_of_simulations;

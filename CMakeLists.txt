@@ -31,6 +31,9 @@ target_link_libraries(Hosking ranlib Cov)
 
 add_library(FBMMCPOptions fbmmcp_options.c)
 add_library(model_fBm models/fractional_brownian_motion.c)
+add_library(model_fBn models/fractional_brownian_noise.c)
+add_library(model_gfBm models/geometric_fractional_brownian_motion.c)
+add_library(model_gfBn models/geometric_fractional_brownian_noise.c)
 
 add_executable(fbmmcp fbmmcp.c fbmmcp.h)
-target_link_libraries(fbmmcp meschach FBMMCPOptions Hosking Circulant model_fBm)
+target_link_libraries(fbmmcp meschach FBMMCPOptions Hosking Circulant model_fBm model_gfBm model_fBn model_gfBn)

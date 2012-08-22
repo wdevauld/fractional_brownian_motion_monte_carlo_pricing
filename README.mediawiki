@@ -6,6 +6,12 @@ A monte carlo simulator of various asset models that have stochastic volatility 
 * Matrix operations provided by Meschach (http://www.netlib.org/c/meschach/)
 * Random number generation provided by Ranlib (http://www.netlib.org/random/)
 
-== OS X Notes ==
+== Installation ==
+=== OS X Notes ===
 Meschach and Ranlib can be installed using MacPorts (http://www.macports.org/)
 <code>sudo port install meschach libranlib</code>
+=== Ubuntu Notes ===
+
+== Models ==
+=== Geometric fractional Brownian Motion ===
+<math>dS_t=\mu S_t dt + \sigma S_t dB_t^{H}</math>

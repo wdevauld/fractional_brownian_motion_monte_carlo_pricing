@@ -32,9 +32,23 @@ int main(int argc, char *argv[] )
     //Change program course depending on what the user is looking for 
     switch (clo->output_option) {
         case HOSKING_BROWNIAN_MOTION_PATHS:
-            DEBUG_MSG("Output will be fractional Brownian Motion Paths\n");
-            //Allocate the memory for output
+            DEBUG_MSG("Output will be fractional Brownian motion paths\n");
             fractional_brownian_motion(clo);
+            break;
+            
+        case HOSKING_BROWNIAN_MOTION_NOISE:
+            DEBUG_MSG("Output will be fractional Brownian noise\n");
+            fractional_brownian_noise(clo);
+            break;
+            
+        case GEOMETRIC_FRACTIONAL_BROWNIAN_MOTION:
+            DEBUG_MSG("Output will be geometric fractional Brownian motion paths\n");
+            geometric_fractional_brownian_motion(clo);
+            break;
+
+        case GEOMETRIC_FRACTIONAL_BROWNIAN_NOISE:
+            DEBUG_MSG("Output will be geometric fractional Brownian noise\n");
+            geometric_fractional_brownian_noise(clo);
             break;
     }
 }

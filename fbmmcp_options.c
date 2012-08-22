@@ -4,13 +4,13 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     int opt;
     long n;
     int error_encountered = 0;
-    while((opt = getopt(argc, argv, "H:n:dt:s:")) != -1) {
+    while((opt = getopt(argc, argv, "H:n:vt:s:o:")) != -1) {
         switch(opt)
         {
             case 'n':
                 clo->number_of_simulations = atoi(optarg);
                 break;
-            case 'd':
+            case 'v':
                 clo->debug = 1;
                 break;
             case 'H':
@@ -21,6 +21,9 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
                 break;
             case 's':
                 clo->number_of_steps = atoi(optarg);
+                break;
+            case 'o':
+                clo->output_option = atoi(optarg);
                 break;
             default: 
                 //Most likely the user entered an invalid option
