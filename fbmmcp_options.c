@@ -4,26 +4,41 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     int opt;
     long n;
     int error_encountered = 0;
-    while((opt = getopt(argc, argv, "H:n:vt:s:o:")) != -1) {
+    while((opt = getopt(argc, argv, "H:n:dt:s:o:v:r:u:b:g:")) != -1) {
         switch(opt)
         {
             case 'n':
                 clo->number_of_simulations = atoi(optarg);
                 break;
-            case 'v':
-                clo->debug = 1;
-                break;
-            case 'H':
-                clo->hurst_exponent = atof(optarg);
+            case 's':
+                clo->number_of_steps = atoi(optarg);
                 break;
             case 't':
                 clo->end_time = atof(optarg);
                 break;
-            case 's':
-                clo->number_of_steps = atoi(optarg);
+            case 'H':
+                clo->hurst_exponent = atof(optarg);
                 break;
             case 'o':
                 clo->output_option = atoi(optarg);
+                break;
+            case 'v':
+                clo->variance = atof(optarg);
+                break;
+            case 'r':
+                clo->risk_free_rate = atof(optarg);
+                break;
+            case 'u':
+                clo->stock_price = atof(optarg);
+                break;
+            case 'b':
+                clo->variance_drift = atof(optarg);
+                break;
+            case 'g':
+                clo->variance_variance = atof(optarg);
+                break;
+            case 'd':
+                clo->debug = 1;
                 break;
             default: 
                 //Most likely the user entered an invalid option
@@ -53,8 +68,34 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     }
     DEBUG_MSG("Simulating to t=%f\n", clo->end_time);
 
-    if(clo->output_option < 1) {
+    if(clo->output_option < 1 || clo-> output_option > 4) {
         clo->output_option = DEFAULT_OUTPUT;
     }
+
+    if(clo->variance <= 0) {
+        clo->variance = DEFAULT_VARIANCE;
+    }
+    DEBUG_MSG("Starting variance is: %f\n", clo->variance);
+    
+    if(clo->risk_free_rate <= 0) {
+        clo->risk_free_rate = DEFAULT_RISK_FREE_RATE;
+    }
+    DEBUG_MSG("Using %f as a risk free rate\n", clo->risk_free_rate);
+
+    if(clo->stock_price <= 0) {
+        clo->stock_price = DEFAULT_STOCK_PRICE;
+    }
+    DEBUG_MSG("Starting stock price is $ %f\n", clo->stock_price);
+    
+    if(clo->variance_drift <= 0) {
+        clo->variance_drift = DEFAULT_VARIANCE_DRIFT;
+    }
+    DEBUG_MSG("Drift of variance is %f\n", clo->variance_drift);
+    
+    if(clo->variance_variance <= 0) {
+        clo->variance_variance = DEFAULT_VARIANCE_VARIANCE;
+    }
+    DEBUG_MSG("Variance of Variance is set to %f\n", clo->variance_variance);
+    
     return !error_encountered;
 }

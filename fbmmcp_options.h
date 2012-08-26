@@ -10,10 +10,15 @@
 #define DEBUG_MSG(...) if(clo->debug) fprintf(stderr, __VA_ARGS__)
 
 #define DEFAULT_SIMULATIONS 5
-#define DEFAULT_HURST_EXPONENT 0.75
 #define DEFAULT_STEPS 16
 #define DEFAULT_END_TIME 10.0
+#define DEFAULT_HURST_EXPONENT 0.75
 #define DEFAULT_OUTPUT 1
+#define DEFAULT_VARIANCE 0.5
+#define DEFAULT_RISK_FREE_RATE 0.0
+#define DEFAULT_STOCK_PRICE 10.0
+#define DEFAULT_VARIANCE_DRIFT 0.1
+#define DEFAULT_VARIANCE_VARIANCE 0.25
 
 //Output options
 #define HOSKING_BROWNIAN_MOTION_PATHS 1
@@ -21,16 +26,41 @@
 #define GEOMETRIC_FRACTIONAL_BROWNIAN_MOTION 3
 #define GEOMETRIC_FRACTIONAL_BROWNIAN_VOLATILITIES 4
 
+#define USAGE "USAGE:\n\
+\tfbmmcp -n [NUM]\n\
+OPTIONS:\n\
+\t-n [NUM]\tNUM of simulations to perform [DEFAULT: 5]\n\
+\t-s [NUM]\tNUM of steps per simulation [DEFAULT: 16]\n\
+\t-t [NUM]\tThe end time of the simulation [DEFAULT: 10.0]\n\
+\t-H [NUM]\tThe Hurst Exponent, NUM, to use in (0,1) [DEFAULT: 0.75]\n\
+\t-o [NUM]\tThe type of output\n\
+\t\t 1 - Fractional Brownian motion\n\
+\t\t 2 - Fractional Brownian noise\n\
+\t\t 3 - Geometric fractional brownian motion\n\
+\t\t 4 - Geometric Fractional brownian volatilities\n\
+\t-v [NUM]\tThe starting variance a_0 [DEFAULT: 0.5]\n\
+\t-r [NUM]\tRisk free rate [DEFAULT: 0.0]\n\
+\t-u [NUM]\tStarting stock price S_0 [DEFAULT: 10.0]\n\
+\t-b [NUM]\tDrift of variance (alpha) [DEFAULT: 0.1]\n\
+\t-g [NUM]\tVariance of variance (gamma) [DEFAULT: 0.25]\n\
+\t-d\t\tEnable debug/verbose output\n"
+
+
 typedef struct{
     long number_of_simulations;
     long number_of_steps;
-    long n;
-    int debug;
+    double end_time;
     double hurst_exponent;
     int output_option;
-    double end_time;
+    double variance;
+    double risk_free_rate;
+    double stock_price;
+    double variance_drift;
+    double variance_variance;
     long seed1;
     long seed2;
+    int debug;    
+    long n;   // 2^n = number_of_simulations
 } command_line_options;
 
 int parse_command_line(command_line_options* clo, int argc, char *argv[]);

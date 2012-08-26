@@ -4,6 +4,7 @@ int main(int argc, char *argv[] )
 {
     command_line_options *clo = calloc(1, sizeof(command_line_options));
     time_t timer;
+    int n;
     timer = time(NULL);
     char *localtime_buffer = (char *)asctime(localtime(&timer));
 
@@ -42,12 +43,12 @@ int main(int argc, char *argv[] )
             break;
             
         case GEOMETRIC_FRACTIONAL_BROWNIAN_MOTION:
-            DEBUG_MSG("Output will be geometric fractional Brownian motion paths\n");
+            DEBUG_MSG("Output will be stock prices with stochastic volatility driven by geometric fractional Brownian motion\n");
             geometric_fractional_brownian_motion(clo);
             break;
 
         case GEOMETRIC_FRACTIONAL_BROWNIAN_VOLATILITIES:
-            DEBUG_MSG("Output will be geometric fractional Brownian noise\n");
+            DEBUG_MSG("Output will be stochastic volatility driven by geometric fractional Brownian motion\n");
             geometric_fractional_brownian_volatilities(clo);
             break;
     }
