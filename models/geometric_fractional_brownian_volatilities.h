@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 #include "../fbmmcp_options.h"
 #include "../hosking.h"

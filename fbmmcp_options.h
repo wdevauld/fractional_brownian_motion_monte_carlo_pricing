@@ -32,11 +32,11 @@ OPTIONS:\n\
 \t-n [NUM]\tNUM of simulations to perform [DEFAULT: 5]\n\
 \t-s [NUM]\tNUM of steps per simulation [DEFAULT: 16]\n\
 \t-t [NUM]\tThe end time of the simulation [DEFAULT: 10.0]\n\
-\t-H [NUM]\tThe Hurst Exponent, NUM, to use in (0,1) [DEFAULT: 0.75]\n\
+\t-H [NUM]\tThe Hurst Exponent to use in (0,1) [DEFAULT: 0.75]\n\
 \t-o [NUM]\tThe type of output\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\
-\t\t 3 - Geometric fractional brownian motion\n\
+\t\t 3 - Stock price with stochastic volatility driven by geometric fractional brownian motion\n\
 \t\t 4 - Geometric Fractional brownian volatilities\n\
 \t-v [NUM]\tThe starting variance a_0 [DEFAULT: 0.5]\n\
 \t-r [NUM]\tRisk free rate [DEFAULT: 0.0]\n\
