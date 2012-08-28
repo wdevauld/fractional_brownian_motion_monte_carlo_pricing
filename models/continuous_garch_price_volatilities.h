@@ -6,4 +6,4 @@
 
 #define DEBUG_MSG(...) if(clo->debug) fprintf(stderr, __VA_ARGS__)
 
-void geometric_fractional_brownian_volatilities(command_line_options*);
+void continuous_garch_price_volatilities(command_line_options*);

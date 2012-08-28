@@ -1,6 +1,6 @@
-#include "geometric_fractional_brownian_motion.h"
+#include "continuous_garch_price_volatilities.h"
 
-void geometric_fractional_brownian_volatilities(command_line_options* clo) {
+void continuous_garch_price_volatilities(command_line_options* clo) {
     int sim,step;
     double old_variance, new_variance, dt;
     int method = 0;
