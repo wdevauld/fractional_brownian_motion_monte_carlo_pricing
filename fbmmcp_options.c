@@ -25,14 +25,17 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
             case 'v':
                 clo->variance = atof(optarg);
                 break;
-            case 'r':
-                clo->risk_free_rate = atof(optarg);
-                break;
             case 'u':
                 clo->stock_price = atof(optarg);
                 break;
+            case 'r':
+                clo->risk_free_rate = atof(optarg);
+                break;
             case 'b':
-                clo->variance_drift = atof(optarg);
+                clo->mean_reversion_level = atof(optarg);
+                break;
+            case 'a':
+                clo->mean_reversion_rate = atof(optarg);
                 break;
             case 'g':
                 clo->variance_variance = atof(optarg);
@@ -87,11 +90,11 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     }
     DEBUG_MSG("Starting stock price is $ %f\n", clo->stock_price);
     
-    if(clo->variance_drift <= 0) {
-        clo->variance_drift = DEFAULT_VARIANCE_DRIFT;
-    }
-    DEBUG_MSG("Drift of variance is %f\n", clo->variance_drift);
+    DEBUG_MSG("Mean reversion rate is %f\n", clo->mean_reversion_rate);
     
+    
+    //TODO: Add in checking of the level.
+
     if(clo->variance_variance <= 0) {
         clo->variance_variance = DEFAULT_VARIANCE_VARIANCE;
     }

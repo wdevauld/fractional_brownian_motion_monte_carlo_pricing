@@ -17,14 +17,15 @@
 #define DEFAULT_VARIANCE 0.5
 #define DEFAULT_RISK_FREE_RATE 0.0
 #define DEFAULT_STOCK_PRICE 10.0
-#define DEFAULT_VARIANCE_DRIFT 0.1
+#define DEFAULT_MEAN_REVERSION_LEVEL 0.5
+#define DEFAULT_MEAN_REVERSION_RATE 0.1
 #define DEFAULT_VARIANCE_VARIANCE 0.25
 
 //Output options
 #define HOSKING_BROWNIAN_MOTION_PATHS 1
 #define HOSKING_BROWNIAN_MOTION_NOISE 2
-#define MOTION_WITH_FRACTIONAL_GARCH_VARIANCES 3
-#define FRACTIONAL_GARCH_VARIANCES 4
+#define MOTION_WITH_FRACTIONAL_CONTINUOUS_GARCH_VARIANCES 3
+#define FRACTIONAL_CONTINUOUS_GARCH_VARIANCES 4
 
 #define USAGE "USAGE:\n\
 \tfbmmcp -n [NUM]\n\
@@ -55,7 +56,6 @@ typedef struct{
     double variance;
     double risk_free_rate;
     double stock_price;
-    double variance_drift;
     double variance_variance;
     double mean_reversion_level;
     double mean_reversion_rate;

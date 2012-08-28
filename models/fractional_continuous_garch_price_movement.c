@@ -26,13 +26,12 @@ void fractional_continuous_garch_price_movement(command_line_options* clo) {
 
         for(step = 0; step < clo->number_of_steps; step++) {
             new_variance = old_variance + 
-                           clo->variance_drift * old_variance * dt +
+                           clo->mean_reversion_rate * (clo->mean_reversion_level - old_variance) * dt +
                            clo->variance_variance * old_variance * fractional_brownian_samples[step];
 
             new_price = old_price +
                         clo->risk_free_rate * old_price * dt +
                         sqrt(new_variance) * old_price * brownian_samples[step]; //These are already scaled via hoskin 
-
 
             printf("%lf\t", new_price);
             old_price = new_price;

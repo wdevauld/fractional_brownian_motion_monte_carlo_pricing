@@ -25,10 +25,10 @@ void fractional_continuous_garch_price_variances(command_line_options* clo) {
 //                clo->variance_drift, old_variance, dt, clo->variance_variance, fractional_brownian_samples[step]);
 
             new_variance = old_variance + 
-                           clo->variance_drift * old_variance * dt +
+                           clo->mean_reversion_rate * (clo->mean_reversion_level - old_variance) * dt +
                            clo->variance_variance * old_variance * fractional_brownian_samples[step];
 
-            printf("%lf\t", sqrt(new_variance));
+            printf("%lf\t", new_variance);
             old_variance = new_variance;
         }
         printf("\n");
