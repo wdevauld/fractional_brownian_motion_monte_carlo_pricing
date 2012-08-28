@@ -23,8 +23,8 @@
 //Output options
 #define HOSKING_BROWNIAN_MOTION_PATHS 1
 #define HOSKING_BROWNIAN_MOTION_NOISE 2
-#define GEOMETRIC_FRACTIONAL_BROWNIAN_MOTION 3
-#define GEOMETRIC_FRACTIONAL_BROWNIAN_VOLATILITIES 4
+#define MOTION_WITH_FRACTIONAL_GARCH_VARIANCES 3
+#define FRACTIONAL_GARCH_VARIANCES 4
 
 #define USAGE "USAGE:\n\
 \tfbmmcp -n [NUM]\n\
@@ -36,15 +36,15 @@ OPTIONS:\n\
 \t-o [NUM]\tThe type of output\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\
-\t\t 3 - Stock price with stochastic volatility driven by geometric fractional brownian motion\n\
-\t\t 4 - Geometric Fractional brownian volatilities\n\
+\t\t 3 - Stock price with stochastic volatility driven by continuous GARCH\n\
+\t\t 4 - fractional GARCH stochastic volatilities\n\
 \t-v [NUM]\tThe starting variance a_0 [DEFAULT: 0.5]\n\
-\t-r [NUM]\tRisk free rate [DEFAULT: 0.0]\n\
 \t-u [NUM]\tStarting stock price S_0 [DEFAULT: 10.0]\n\
-\t-b [NUM]\tDrift of variance (alpha) [DEFAULT: 0.1]\n\
+\t-r [NUM]\tThe risk free rate[DEFAULT: 0.0]\n\
+\t-b [NUM]\tThe mean-reversion level (beta) [DEFAULT: 0.5]\n\
+\t-a [NUM]\tThe mean-reversion rate (alpha) [DEFAULT: 0.1]\n\
 \t-g [NUM]\tVariance of variance (gamma) [DEFAULT: 0.25]\n\
 \t-d\t\tEnable debug/verbose output\n"
-
 
 typedef struct{
     long number_of_simulations;
@@ -57,6 +57,8 @@ typedef struct{
     double stock_price;
     double variance_drift;
     double variance_variance;
+    double mean_reversion_level;
+    double mean_reversion_rate;
     long seed1;
     long seed2;
     int debug;    

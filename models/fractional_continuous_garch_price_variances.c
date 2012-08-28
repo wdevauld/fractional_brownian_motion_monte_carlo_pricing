@@ -1,6 +1,6 @@
-#include "continuous_garch_price_volatilities.h"
+#include "fractional_continuous_garch_price_variances.h"
 
-void continuous_garch_price_volatilities(command_line_options* clo) {
+void fractional_continuous_garch_price_variances(command_line_options* clo) {
     int sim,step;
     double old_variance, new_variance, dt;
     int method = 0;

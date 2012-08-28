@@ -6,4 +6,4 @@
 
 #define DEBUG_MSG(...) if(clo->debug) fprintf(stderr, __VA_ARGS__)
 
-void continuous_garch_price_volatilities(command_line_options*);
+void fractional_continuous_garch_price_movement(command_line_options*);
