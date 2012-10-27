@@ -1,6 +1,6 @@
-#include "fractional_continuous_garch_price_movement.h"
+#include "fractional_mean_reverting_volatilities.h"
 
-void fractional_continuous_garch_price_movement(command_line_options* clo) {
+void fractional_mean_reverting_volatilities(command_line_options* clo) {
     int sim,step;
     double old_variance, new_variance, old_price, new_price, dt;
     double h = 0.5; 

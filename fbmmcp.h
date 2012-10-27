@@ -14,6 +14,6 @@
 // Models or Modes of output functions
 #include "models/fractional_brownian_motion.h"
 #include "models/fractional_brownian_noise.h"
-#include "models/fractional_continuous_garch_price_variances.h"
-#include "models/fractional_continuous_garch_price_movement.h"
+#include "models/fractional_mean_reverting_variances.h"
+#include "models/fractional_mean_reverting_volatilities.h"
 

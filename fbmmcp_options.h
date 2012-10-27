@@ -24,8 +24,8 @@
 //Output options
 #define HOSKING_BROWNIAN_MOTION_PATHS 1
 #define HOSKING_BROWNIAN_MOTION_NOISE 2
-#define MOTION_WITH_FRACTIONAL_CONTINUOUS_GARCH_VARIANCES 3
-#define FRACTIONAL_CONTINUOUS_GARCH_VARIANCES 4
+#define MOTION_WITH_FRACTIONAL_MEAN_REVERTING_VOLATILITIES 3
+#define MOTION_WITH_FRACTIONAL_MEAN_REVERTING_VARIANCES 4
 
 #define USAGE "USAGE:\n\
 \tfbmmcp -n [NUM]\n\
@@ -37,8 +37,8 @@ OPTIONS:\n\
 \t-o [NUM]\tThe type of output\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\
-\t\t 3 - Stock price with stochastic volatility driven by continuous GARCH\n\
-\t\t 4 - fractional GARCH stochastic volatilities\n\
+\t\t 3 - Stock price with stochastic volatility driven by fractional mean reverting volatilities\n\
+\t\t 4 - Stock price with stochastic volatility driven by fractional mean reverting volatilities\n\
 \t-v [NUM]\tThe starting variance a_0 [DEFAULT: 0.5]\n\
 \t-u [NUM]\tStarting stock price S_0 [DEFAULT: 10.0]\n\
 \t-r [NUM]\tThe risk free rate[DEFAULT: 0.0]\n\
