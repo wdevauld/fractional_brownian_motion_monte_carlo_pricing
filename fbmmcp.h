@@ -16,4 +16,3 @@
 #include "models/fractional_brownian_noise.h"
 #include "models/fractional_mean_reverting_variances.h"
 #include "models/fractional_mean_reverting_volatilities.h"
-

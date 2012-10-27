@@ -38,13 +38,13 @@ OPTIONS:\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\
 \t\t 3 - Stock price with stochastic volatility driven by fractional mean reverting volatilities\n\
-\t\t 4 - Stock price with stochastic volatility driven by fractional mean reverting volatilities\n\
-\t-v [NUM]\tThe starting variance a_0 [DEFAULT: 0.5]\n\
+\t\t 4 - Stock price with stochastic volatility driven by fractional mean reverting variances\n\
+\t-v [NUM]\tThe starting variance/volatility a_0 [DEFAULT: 0.5]\n\
 \t-u [NUM]\tStarting stock price S_0 [DEFAULT: 10.0]\n\
 \t-r [NUM]\tThe risk free rate[DEFAULT: 0.0]\n\
 \t-b [NUM]\tThe mean-reversion level (beta) [DEFAULT: 0.5]\n\
 \t-a [NUM]\tThe mean-reversion rate (alpha) [DEFAULT: 0.1]\n\
-\t-g [NUM]\tVariance of variance (gamma) [DEFAULT: 0.25]\n\
+\t-g [NUM]\tVariance of variance/volatility (gamma) [DEFAULT: 0.25]\n\
 \t-d\t\tEnable debug/verbose output\n"
 
 typedef struct{
