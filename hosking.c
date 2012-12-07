@@ -43,7 +43,6 @@ void hosking(long *n, double *H, double *L, int *cum,
   double v, scaling;
    
   /* set random generator and seeds */
-  snorm(); 
   generator = 1;
   gscgn(1, &generator);
   setall(*seed1,*seed2);

@@ -42,14 +42,24 @@ int main(int argc, char *argv[] )
             fractional_brownian_noise(clo);
             break;
             
-        case MOTION_WITH_FRACTIONAL_MEAN_REVERTING_VOLATILITIES:
-            DEBUG_MSG("Output will be stock prices with stochastic volatility driven by mean reverting fractional volatility\n");
-            fractional_mean_reverting_volatilities(clo);
+        case MOTION_WITH_FRACTIONAL_OU:
+            DEBUG_MSG("Output will be stock prices with stochastic volatility driven by fractional Ornstein-Uhlenbeck\n");
+            fractional_ou(clo);
             break;
 
-        case MOTION_WITH_FRACTIONAL_MEAN_REVERTING_VARIANCES:
-            DEBUG_MSG("Output will be stock prices with stochastic volatility driven by mean reverting fractional variance\n");
-            fractional_mean_reverting_variances(clo);
+        case FRACTIONAL_GARCH:
+            DEBUG_MSG("Output will be fractional Continuous GARCH(1,1)\n");
+            fractional_garch(clo);
             break;
+            
+        case MOTION_WITH_FRACTIONAL_CIR:
+            DEBUG_MSG("Output will be stock prices with stochastic volatility driven by fractional Cox-Ingersoll-Ross\n");
+            fractional_cir(clo);
+            break;
+
+        case FRACTIONAL_HESTON:
+            DEBUG_MSG("Output will be fractional Heston\n");
+            fractional_heston(clo);
+            break;               
     }
 }

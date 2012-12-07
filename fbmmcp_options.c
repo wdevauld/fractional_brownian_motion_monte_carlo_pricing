@@ -78,7 +78,7 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     if(clo->variance <= 0) {
         clo->variance = DEFAULT_VARIANCE;
     }
-    DEBUG_MSG("Starting variance is: %f\n", clo->variance);
+    DEBUG_MSG("Starting variance/volatility is: %f\n", clo->variance);
     
     if(clo->risk_free_rate <= 0) {
         clo->risk_free_rate = DEFAULT_RISK_FREE_RATE;
@@ -98,7 +98,7 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     if(clo->variance_variance <= 0) {
         clo->variance_variance = DEFAULT_VARIANCE_VARIANCE;
     }
-    DEBUG_MSG("Variance of Variance is set to %f\n", clo->variance_variance);
+    DEBUG_MSG("Volatility of Volatility is set to %f\n", clo->variance_variance);
     
     return !error_encountered;
 }

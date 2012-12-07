@@ -6,4 +6,5 @@
 
 #define DEBUG_MSG(...) if(clo->debug) fprintf(stderr, __VA_ARGS__)
 
-void fractional_mean_reverting_variances(command_line_options*);
+void fractional_garch(command_line_options*);
+void fractional_heston(command_line_options*);
