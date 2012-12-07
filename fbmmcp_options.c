@@ -71,7 +71,7 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     }
     DEBUG_MSG("Simulating to t=%f\n", clo->end_time);
 
-    if(clo->output_option < 1 || clo-> output_option > 4) {
+    if(clo->output_option < 1 || clo-> output_option > 6) {
         clo->output_option = DEFAULT_OUTPUT;
     }
 
