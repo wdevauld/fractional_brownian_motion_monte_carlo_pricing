@@ -3,46 +3,50 @@
 int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     int opt;
     long n;
+    long defaultseed1;
+    long defaultseed2;
+    time_t timer = time(NULL);
     int error_encountered = 0;
-    while((opt = getopt(argc, argv, "H:n:dt:s:o:v:r:u:b:g:")) != -1) {
+    char *localtime_buffer = (char *)asctime(localtime(&timer));
+    
+    //Get default seed values if a user doesn't specify one
+    phrtsd(localtime_buffer, &defaultseed1, &defaultseed2);
+
+    while((opt = getopt(argc, argv, "H:n:dt:s:hj:k:o:v:r:u:b:g:")) != -1) {
         switch(opt)
         {
-            case 'n':
-                clo->number_of_simulations = atoi(optarg);
-                break;
-            case 's':
-                clo->number_of_steps = atoi(optarg);
-                break;
-            case 't':
-                clo->end_time = atof(optarg);
-                break;
-            case 'H':
-                clo->hurst_exponent = atof(optarg);
-                break;
-            case 'o':
-                clo->output_option = atoi(optarg);
-                break;
-            case 'v':
-                clo->variance = atof(optarg);
-                break;
-            case 'u':
-                clo->stock_price = atof(optarg);
-                break;
-            case 'r':
-                clo->risk_free_rate = atof(optarg);
-                break;
-            case 'b':
-                clo->mean_reversion_level = atof(optarg);
-                break;
             case 'a':
-                clo->mean_reversion_rate = atof(optarg);
-                break;
-            case 'g':
-                clo->variance_variance = atof(optarg);
-                break;
+                clo->mean_reversion_rate = atof(optarg); break;
+            case 'b':
+                clo->mean_reversion_level = atof(optarg); break;
             case 'd':
-                clo->debug = 1;
-                break;
+                clo->debug = 1; break;
+            case 'g':
+                clo->variance_variance = atof(optarg); break;
+            case 'h':
+                error_encountered = 1; //not really, but they'll get the help :)
+            case 'H':
+                clo->hurst_exponent = atof(optarg); break;  
+            case 'j':
+                clo->seed1 = atoi(optarg); break;
+            case 'k':
+                clo->seed2 = atoi(optarg); break;
+            case 'n':
+                clo->number_of_simulations = atoi(optarg); break;
+            case 'o':
+                clo->output_option = atoi(optarg); break;
+            case 'r':
+                clo->risk_free_rate = atof(optarg); break;
+            case 's':
+                clo->number_of_steps = atoi(optarg); break;
+            case 't':
+                clo->end_time = atof(optarg); break;
+            case 'u':
+                clo->stock_price = atof(optarg); break;
+            case 'v':
+                clo->variance = atof(optarg); break;
+    
+
             default: 
                 //Most likely the user entered an invalid option
                 error_encountered = 1;
@@ -91,9 +95,13 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
     DEBUG_MSG("Starting stock price is $ %f\n", clo->stock_price);
     
     DEBUG_MSG("Mean reversion rate is %f\n", clo->mean_reversion_rate);
-    
-    
-    //TODO: Add in checking of the level.
+    if(clo->seed1 == 0) {
+        clo->seed1 = defaultseed1;
+    }
+    if(clo->seed2 == 0) {
+        clo->seed2 = defaultseed2;
+    }
+    DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n",clo->seed1, clo->seed2);
 
     if(clo->variance_variance <= 0) {
         clo->variance_variance = DEFAULT_VARIANCE_VARIANCE;

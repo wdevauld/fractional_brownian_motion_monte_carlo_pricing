@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#include <time.h>
+#include <sys/time.h>
+#include "ranlib.h"
 
 //Oh man, an include guard....
 #ifndef FBMMCP_OPTIONS_H
@@ -37,6 +40,8 @@ OPTIONS:\n\
 \t-s [NUM]\tNUM of steps per simulation [DEFAULT: 16]\n\
 \t-t [NUM]\tThe end time of the simulation [DEFAULT: 10.0]\n\
 \t-H [NUM]\tThe Hurst Exponent to use in (0,1) [DEFAULT: 0.75]\n\
+\t-j [NUM]\tSeed #1\n\
+\t-k [NUM]\tSeed #2\n\
 \t-o [NUM]\tThe type of output\n\
 \t\t 1 - Fractional Brownian motion\n\
 \t\t 2 - Fractional Brownian noise\n\

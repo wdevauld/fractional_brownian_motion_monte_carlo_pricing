@@ -3,16 +3,7 @@
 int main(int argc, char *argv[] )
 {
     command_line_options *clo = calloc(1, sizeof(command_line_options));
-    time_t timer;
     int n;
-    timer = time(NULL);
-    char *localtime_buffer = (char *)asctime(localtime(&timer));
-
-    /*
-    time_t timer;
-    timer = time(NULL);
-    char *localtime_buffer = (char *)asctime(localtime(&timer));
-    */
 
     if(!parse_command_line(clo, argc, argv)) {
         //Exit with failure after printing usage if the parameter parsing
@@ -20,11 +11,6 @@ int main(int argc, char *argv[] )
         printf(USAGE);
         return 1; 
     }
-    //TODO allow the user to specify the seeds
-    phrtsd(localtime_buffer, &(clo->seed1), &(clo->seed2));
-    
-    DEBUG_MSG("Seeds are set to: 1=>%ld 2=>%ld\n",clo->seed1, clo->seed2);
-
     DEBUG_MSG("User desired: %ld steps\n", clo->number_of_steps);
     clo->n = floor(log2(clo->number_of_steps));
     clo->number_of_steps = pow(2,clo->n);

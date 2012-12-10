@@ -1,6 +1,3 @@
-#include <time.h>
-#include <sys/time.h>
-
 #include <stdio.h>
 #define DEBUG_MSG(...) if(clo->debug) fprintf(stderr, __VA_ARGS__)
 

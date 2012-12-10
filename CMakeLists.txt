@@ -30,6 +30,8 @@ add_library(Hosking hosking.c)
 target_link_libraries(Hosking ranlib Cov)
 
 add_library(FBMMCPOptions fbmmcp_options.c)
+target_link_libraries(FBMMCPOptions ranlib)
+
 add_library(model_fBm models/fractional_brownian_motion.c)
 add_library(model_fBn models/fractional_brownian_noise.c)
 add_library(model_fcgvo models/fractional_mean_reverting_volatilities.c)
