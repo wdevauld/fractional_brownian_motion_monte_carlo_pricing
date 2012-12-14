@@ -24,7 +24,7 @@ int parse_command_line(command_line_options* clo, int argc, char *argv[]) {
             case 'g':
                 clo->variance_variance = atof(optarg); break;
             case 'h':
-                error_encountered = 1; //not really, but they'll get the help :)
+                error_encountered = 1; break; //not really, but they'll get the help :)
             case 'H':
                 clo->hurst_exponent = atof(optarg); break;  
             case 'j':
